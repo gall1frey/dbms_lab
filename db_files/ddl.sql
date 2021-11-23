@@ -1,3 +1,4 @@
+drop database hoteldb;
 create database hoteldb;
 
 \c hoteldb
@@ -19,6 +20,7 @@ C_EMAIL varchar(50) NOT NULL,
 C_DOB date NOT NULL,
 C_NUM_PEOPLE numeric(10,0),
 C_ROOM numeric(10,0),
+C_CHECKED_IN boolean NOT NULL DEFAULT TRUE,
 PRIMARY KEY(C_ID)
 );
 
@@ -30,6 +32,8 @@ E_PHNO numeric(10,0) NOT NULL,
 E_DOB date NOT NULL,
 E_SALARY numeric(10,0) NOT NULL,
 E_ACC_NUM numeric(10,0) NOT NULL,
+E_DEPT_ID numeric(10,0) NOT NULL,
+E_MGR_ID numeric(10,0) NOT NULL,
 PRIMARY KEY(E_ID)
 );
 
@@ -37,6 +41,7 @@ create table DEPARTMENT(
 D_DESCRIPTION varchar(100),
 D_NAME varchar(20) NOT NULL,
 D_ID numeric(10,0) NOT NULL UNIQUE,
+D_MANAGER_ID numeric(10,0) NOT NULL,
 PRIMARY KEY(D_ID)
 );
 
@@ -54,8 +59,8 @@ R_ID numeric(10,0) NOT NULL UNIQUE,
 R_FLOORNO numeric(10,0) NOT NULL,
 R_NOBEDS numeric(10,0) NOT NULL,
 R_DESCRIPTION varchar(50),
-PRIMARY KEY(R_ID),
-R_CHARGES numeric(10,0)
+R_CHARGES numeric(10,0),
+PRIMARY KEY(R_ID)
 );
 
 create table BILL(
@@ -68,3 +73,6 @@ CUST_ID numeric(10,0) NOT NULL,
 PRIMARY KEY(B_ID),
 FOREIGN KEY(CUST_ID) REFERENCES CUSTOMER(C_ID)
 );
+
+alter table EMPLOYEE add constraint FKEY_DNO FOREIGN KEY (E_DEPT_ID) REFERENCES DEPARTMENT(D_ID);
+--alter table EMPLOYEE add constraint MGR_FKEY FOREIGN KEY (E_MGR_ID) REFERENCES EMPLOYEE(E_ID);

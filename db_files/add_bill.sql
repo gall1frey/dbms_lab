@@ -15,3 +15,6 @@ INSERT INTO bill VALUES('room charges',2875,13,'credit card','7/8/2016',39);
 INSERT INTO bill VALUES('room charges',1879,14,'net banking','3/24/2016',48);
 INSERT INTO bill VALUES('room charges',1538,15,'upi','2/14/2019',56);
 INSERT INTO bill VALUES('room charges',3095,16,'debit card','7/3/2014',59);
+INSERT INTO bill VALUES('Room Service',200,17,'upi','1/28/2014',1);
+INSERT INTO bill VALUES('Hotel',1500,18,'debit card','1/29/2014',1);
+INSERT INTO bill VALUES('Laundry',200,19,'upi','1/29/2014',1);

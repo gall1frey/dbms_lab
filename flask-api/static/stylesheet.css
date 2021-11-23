@@ -1,0 +1,25 @@
+body, html {
+  scroll-behavior: smooth;
+  font-family: monospace;
+  max-width: 100%;
+  background: #ddd;
+  cursor: default;
+}
+
+form {
+  align:center;
+  padding: 2%;
+  margin: auto;
+}
+
+.reception-form {
+  display: none;
+}
+
+.form-container {
+  margin: auto;
+}
+
+table {
+  border: 1px;
+}
