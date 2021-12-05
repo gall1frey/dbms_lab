@@ -27,16 +27,15 @@
         <input type="submit" name="sub" value="Submit" id="checkin_submit">
       </form>
       <form class="reception-form cust-checkout-form" action="#" method="post" id="checkout_form">
-        <input type="text" name="lname" placeholder="Customer Last Name">
-        <input type="number" name="phno" placeholder="Customer Phone Number">
+        <input type="text" name="cust_lname" placeholder="Customer Last Name">
+        <input type="number" name="cust_phno" placeholder="Customer Phone Number">
         <input type="submit" name="sub" value="Submit" id="checkout_form_sub">
       </form>
-      <form class="reception-form bill-form" action="index.html" method="post" id="bill_form">
+      <form class="reception-form bill-form" action="#" method="post" id="bill_form">
         <input type="number" name="bill_id" placeholder="bill_id">
         <input type="text" name="paymode" placeholder="payment mode">
         <input type="number" name="customer_id" placeholder="cust_id">
-        <input type="date" name="pay_date" placeholder="pay_date">
-        <input type="submit" name="sub" value="Submit" onsubmit="pay_bill" id="bill_sub">
+        <input type="submit" name="sub" value="Submit" id="bill_sub">
       </form>
       <form class="reception-form get-bill-form" action="index.html" method="post" id="get_bill_form">
         <input type="text" name="cust_lname" placeholder="Lastname">
@@ -45,6 +44,9 @@
       </form>
     </div>
     <div class="data-container">
+      <div class="msg-container">
+        <p id="msg"></p>
+      </div>
       <table class="reception-table" id="reception_table">
 
       </table>

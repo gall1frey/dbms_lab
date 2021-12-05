@@ -25,11 +25,20 @@ def accounts():
 def services():
     return render_template('services.html')
 
-@app.route('/reception',methods=['GET'])
-def reception():
-    return render_template('reception.html')
+app.route('/reception/pay_bill',methods=['POST'])
+def pay_bill():
+    print(request.form)
+    #cursor = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
+    #query = "UPDATE BILL SET B_PAYMODE='{}' WHERE B_ID={} AND CUST_ID={}"
+    #q = query.format(request.form['paymode'],
+    #                request.form['bill_id'],
+    #                request.form['customer_id'])
+    #cursor.execute(q)
+    #conn.commit()
+    #cursor.close()
+    return {'msg':"If an unpaid bill with the above details exists, it's ben paid!"}
 
-@app.route('/customer_checkin',methods=['POST'])
+@app.route('/reception/customer_checkin',methods=['POST'])
 def customer_checkin():
     #cursor = conn.cursor()
     cursor = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
@@ -47,17 +56,39 @@ def customer_checkin():
                     request.form['nop'],request.form['roomno'])
     #print(q)
     cursor.execute(q)
+    conn.commit()
+    cursor.close()
     for i in cursor:
         print(i)
     return {'res':'hello'}
 
-@app.route('/customer_checkout',methods=['POST'])
+@app.route('/reception/customer_checkout',methods=['POST'])
 def customer_checkout():
-    cursor = conn.cursor('checkout')
     print(request.form)
-    return {'res':'hello'}
+    cursor = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
+    query = "SELECT B_INFO,B_AMT,B_PAYMODE FROM BILL,CUSTOMER WHERE BILL.CUST_ID=C_ID AND CUSTOMER.C_LNAME='{}' AND C_PHNO={}"
+    q = query.format(request.form['cust_lname'],
+                    request.form['cust_phno'])
+    cursor.execute(q)
+    bill_items_unpaid = []
+    count = 0
+    for i in cursor:
+        count += 1
+        if i[-1] == None:
+            bill_items_unpaid.append(i)
+    if count == 0:
+        return {'msg':'Wrong info!'}
+    if len(bill_items_unpaid) > 0:
+        return {'msg':'Unpaid bills exist, can\'t checkout!','data':bill_items_unpaid}
+    query = "UPDATE CUSTOMER SET C_CHECKED_IN = false WHERE C_LNAME='{}' AND C_PHNO={}"
+    q = query.format(request.form['cust_lname'],
+                    request.form['cust_phno'])
+    cursor.execute(q)
+    conn.commit()
+    cursor.close()
+    return {'msg':'Checkout Success!'}
 
-@app.route('/get_bill',methods=['POST'])
+@app.route('/reception/get_bill',methods=['POST'])
 def get_bill():
     cursor = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
     query = "SELECT B_INFO,B_AMT,B_PAYMODE,B_DATE FROM BILL,CUSTOMER WHERE BILL.CUST_ID=C_ID AND CUSTOMER.C_LNAME='{}' AND C_PHNO={}"
@@ -67,4 +98,9 @@ def get_bill():
     l = []
     for i in cursor:
         l.append(i)
+    cursor.close()
     return {'data':l}
+
+@app.route('/reception',methods=['GET'])
+def reception():
+    return render_template('reception.html')

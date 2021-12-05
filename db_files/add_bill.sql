@@ -18,3 +18,4 @@ INSERT INTO bill VALUES('room charges',3095,16,'debit card','7/3/2014',59);
 INSERT INTO bill VALUES('Room Service',200,17,'upi','1/28/2014',1);
 INSERT INTO bill VALUES('Hotel',1500,18,'debit card','1/29/2014',1);
 INSERT INTO bill VALUES('Laundry',200,19,'upi','1/29/2014',1);
+INSERT INTO bill (b_info,b_amt,b_id,b_date,cust_id) VALUES('Hotel',500,20,'1/29/2014',1);
