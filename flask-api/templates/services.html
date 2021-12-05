@@ -1,10 +1,23 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-    Services
-  </body>
+	<head>
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='stylesheet.css')}}">
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="title_class">
+			<h1>Services</h1>
+		</div>
+		<div class="form-container">
+			<select class="services-form-selector selector-form" name="form-selector" id='form_selector'>
+				<option value="list-services">List Services</option>
+				<option value="request-service">Request Service</option>
+			</select>
+			<form class="" action="#" method="post" id="list_services">
+				<input type="text" name="dept" placeholder="department">
+				<input type="submit" name="sub" value="Submit" id="list_serv_submit">
+			</form>
+		</div>
+	</body>
 </html>

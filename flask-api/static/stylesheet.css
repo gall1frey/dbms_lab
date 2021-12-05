@@ -20,6 +20,11 @@ form {
   margin: auto;
 }
 
+.form-selector {
+	margin: auto;
+	font-size: 2em;
+}
+
 table {
   border: 1px;
 }

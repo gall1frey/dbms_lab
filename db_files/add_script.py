@@ -13,7 +13,7 @@ f.write('alter table DEPARTMENT drop constraint department_mgr_id_fkey;\n')
 f.write('alter table EMPLOYEE drop constraint MGR_FKEY;\n')
 f.write('alter table EMPLOYEE drop constraint FKEY_DNO;\n')
 
-cmd = "INSERT INTO rooms VALUES({},{},{},'{}',{},1);\n"
+cmd = "INSERT INTO rooms VALUES({},{},{},'{}',{});\n"
 
 for i in range(30):
 	r_id = i+1

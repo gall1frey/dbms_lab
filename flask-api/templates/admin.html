@@ -1,10 +1,19 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-    Admin
-  </body>
+	<head>
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='stylesheet.css')}}">
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="title_class">
+			<h1>Admin</h1>
+		</div>
+		<div class="form-container">
+			<select class="admin-form-selector selector-form" name="form-selector" id='form_selector'>
+				<option value="view salary">View Salary</option>
+				<option value="update salary">Update Salary</option>
+			</select>
+		</div>
+	</body>
 </html>

@@ -1,57 +1,57 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='stylesheet.css')}}">
-    <title>Reception</title>
-  </head>
-  <body>
-    <div class="title_class">
-      <h1>Reception</h1>
-    </div>
-    <div class="form-container">
-      <select class="reception-form-selector" name="form-selector" id='form_selector'>
-        <option value="add_cust">Checkin</option>
-        <option value="checkout_form">Checkout</option>
-        <option value="bill_form">Pay Bill</option>
-        <option value="get_bill_form">Get Bill</option>
-      </select>
-      <form class="reception-form cust-checkin-form" action="#" method="post" id='add_cust'>
-        <input type="text" name="fname" placeholder="Customer First Name">
-        <input type="text" name="lname" placeholder="Customer Last Name">
-        <input type="number" name="phno" placeholder="Customer Phone Number">
-        <input type="email" name="email" placeholder="Customer Email ID">
-        <input type="date" name="dob" placeholder="Customer DOB">
-        <input type="number" name="nop" placeholder="No. of people">
-        <input type="number" name="roomno" placeholder="Room no">
-        <input type="submit" name="sub" value="Submit" id="checkin_submit">
-      </form>
-      <form class="reception-form cust-checkout-form" action="#" method="post" id="checkout_form">
-        <input type="text" name="cust_lname" placeholder="Customer Last Name">
-        <input type="number" name="cust_phno" placeholder="Customer Phone Number">
-        <input type="submit" name="sub" value="Submit" id="checkout_form_sub">
-      </form>
-      <form class="reception-form bill-form" action="#" method="post" id="bill_form">
-        <input type="number" name="bill_id" placeholder="bill_id">
-        <input type="text" name="paymode" placeholder="payment mode">
-        <input type="number" name="customer_id" placeholder="cust_id">
-        <input type="submit" name="sub" value="Submit" id="bill_sub">
-      </form>
-      <form class="reception-form get-bill-form" action="index.html" method="post" id="get_bill_form">
-        <input type="text" name="cust_lname" placeholder="Lastname">
-        <input type="number" name="phno" placeholder="phno">
-        <input type="submit" name="sub" value="Submit" onsubmit="pay_bill" id="get_bill_sub">
-      </form>
-    </div>
-    <div class="data-container">
-      <div class="msg-container">
-        <p id="msg"></p>
-      </div>
-      <table class="reception-table" id="reception_table">
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='stylesheet.css')}}">
+		<title>Reception</title>
+	</head>
+	<body>
+		<div class="title_class">
+			<h1>Reception</h1>
+		</div>
+		<div class="form-container">
+			<select class="reception-form-selector selector-form" name="form-selector" id='form_selector'>
+				<option value="add_cust">Checkin</option>
+				<option value="checkout_form">Checkout</option>
+				<option value="bill_form">Pay Bill</option>
+				<option value="get_bill_form">Get Bill</option>
+			</select>
+			<form class="reception-form cust-checkin-form" action="#" method="post" id='add_cust'>
+				<input type="text" name="fname" placeholder="Customer First Name">
+				<input type="text" name="lname" placeholder="Customer Last Name">
+				<input type="number" name="phno" placeholder="Customer Phone Number">
+				<input type="email" name="email" placeholder="Customer Email ID">
+				<input type="date" name="dob" placeholder="Customer DOB">
+				<input type="number" name="nop" placeholder="No. of people">
+				<input type="number" name="roomno" placeholder="Room no">
+				<input type="submit" name="sub" value="Submit" id="checkin_submit">
+			</form>
+			<form class="reception-form cust-checkout-form" action="#" method="post" id="checkout_form">
+				<input type="text" name="cust_lname" placeholder="Customer Last Name">
+				<input type="number" name="cust_phno" placeholder="Customer Phone Number">
+				<input type="submit" name="sub" value="Submit" id="checkout_form_sub">
+			</form>
+			<form class="reception-form bill-form" action="#" method="post" id="bill_form">
+				<input type="number" name="bill_id" placeholder="bill_id">
+				<input type="text" name="paymode" placeholder="payment mode">
+				<input type="number" name="customer_id" placeholder="cust_id">
+				<input type="submit" name="sub" value="Submit" id="bill_sub">
+			</form>
+			<form class="reception-form get-bill-form" action="index.html" method="post" id="get_bill_form">
+				<input type="text" name="cust_lname" placeholder="Lastname">
+				<input type="number" name="phno" placeholder="phno">
+				<input type="submit" name="sub" value="Submit" onsubmit="pay_bill" id="get_bill_sub">
+			</form>
+		</div>
+		<div class="data-container">
+			<div class="msg-container">
+				<p id="msg"></p>
+			</div>
+			<table class="reception-table" id="reception_table">
 
-      </table>
-    </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="{{ url_for('static',filename='script.js')}}" charset="utf-8"></script>
-  </body>
+			</table>
+		</div>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="{{ url_for('static',filename='script.js')}}" charset="utf-8"></script>
+	</body>
 </html>
