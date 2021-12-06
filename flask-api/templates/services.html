@@ -6,18 +6,38 @@
 		<title></title>
 	</head>
 	<body>
+		<div class="header-class">
+			<a href="/"><p>Home</p></a>
+		</div>
 		<div class="title_class">
 			<h1>Services</h1>
 		</div>
 		<div class="form-container">
-			<select class="services-form-selector selector-form" name="form-selector" id='form_selector'>
-				<option value="list-services">List Services</option>
-				<option value="request-service">Request Service</option>
+			<select class="services-form-selector selector-form" name="form-selector" id='form_selector_services'>
+				<option value="list_services_form">List Services</option>
+				<option value="use_services_form">Request Service</option>
 			</select>
-			<form class="" action="#" method="post" id="list_services">
+			<form class="service-form list-services-form" action="#" method="post" id="list_services_form">
 				<input type="text" name="dept" placeholder="department">
-				<input type="submit" name="sub" value="Submit" id="list_serv_submit">
+				<input type="submit" name="sub" value="Submit" id="list_serv_sub">
+			</form>
+			<form class="service-form use-services-form" action="#" method="post" id="use_services_form">
+				<input type="number" name="service_id" placeholder="service_id">
+				<input type="text" name="cust_lname" placeholder="Last Name">
+				<input type="number" name="cust_phno" placeholder="Phone number">
+				<input type="number" name="quantity" placeholder="quantity">
+				<input type="submit" name="sub" value="Submit" id="use_serv_sub">
 			</form>
 		</div>
+		<div class="data-container">
+			<div class="msg-container">
+				<p id="msg"></p>
+			</div>
+			<table class="service-table" id="service_table">
+
+			</table>
+		</div>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="{{ url_for('static',filename='script.js')}}" charset="utf-8"></script>
 	</body>
 </html>

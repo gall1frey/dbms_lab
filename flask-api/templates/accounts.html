@@ -6,14 +6,69 @@
 		<title></title>
 	</head>
 	<body>
+		<div class="header-class">
+			<a href="/"><p>Home</p></a>
+		</div>
 		<div class="title_class">
 			<h1>Accounts</h1>
 		</div>
 		<div class="form-container">
-			<select class="accounts-form-selector selector-form" name="form-selector" id='form_selector'>
-				<option value="view salary">View Salary</option>
-				<option value="update salary">Update Salary</option>
+			<select class="accounts-form-selector selector-form" name="form-selector" id='form_selector_accounts'>
+				<option value="accounts_list_form">View Salary</option>
+				<option value="accounts_update_form">Update Salary</option>
 			</select>
+			<form class="accounts-form accounts-list-form" action="#" method="post" id="accounts_list_form">
+				<label><p>Select columns to view</p></label>
+				<label for="emp_id">Employee ID</label>
+				<input type="checkbox" name="emp_id" value="e_id">
+				<label for="emp_fname">First Name</label>
+				<input type="checkbox" name="emp_fname" value="e_fname">
+				<label for="emp_lname">Last Name</label>
+				<input type="checkbox" name="emp_lname" value="e_lname">
+				<label for="emp_phno">Phone Number</label>
+				<input type="checkbox" name="emp_phno" value="e_phno">
+				<label for="emp_dob">Date of Birth</label>
+				<input type="checkbox" name="emp_dob" value="e_dob">
+				<label for="emp_salary">Salary</label>
+				<input type="checkbox" name="emp_salary" value="e_salary">
+				<label for="emp_accnum">Account Number</label>
+				<input type="checkbox" name="emp_accnum" value="e_acc_num">
+				<label for="emp_mgr_id">Manager ID</label>
+				<input type="checkbox" name="emp_mgr_id" value="e_mgr_id">
+				<label for="emp_dept_id">Dept ID</label>
+				<input type="checkbox" name="emp_dept_id" value="e_dept_id">
+				<br/>
+				<label for="condition">Condition</label>
+				<br/>
+				<select class="condition-select" name="condition">
+					<option value="e_id">Employee ID</option>
+					<option value="e_salary">Salary</option>
+					<option value="e_dob">Date of Birth</option>
+					<option value="e_mgr_id">Manager ID</option>
+					<option value="e_acc_num">Account Number</option>
+				</select>
+				<select class="comparison" name="comparison">
+					<option value="gt">&gt</option>
+					<option value="eq">=</option>
+					<option value="lt">&lt</option>
+				</select>
+				<input type="text" name="check" placeholder="check">
+				<input type="submit" name="sub" value="Submit" onsubmit="list_accounts" id="list_accounts_sub">
+			</form>
+			<form class="accounts-form accounts-update-form" action="#" method="post" id="accounts_update_form">
+				<input type="text" name="query" placeholder="too lazy. just enter the entire query here :/">
+				<input type="submit" name="sub" value="Submit" onsubmit="update_accounts" id="update_accounts_sub">
+			</form>
 		</div>
+		<div class="data-container">
+			<div class="msg-container">
+				<p id="msg"></p>
+			</div>
+			<table class="accounts-table" id="accounts_table">
+
+			</table>
+		</div>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="{{ url_for('static',filename='script.js')}}" charset="utf-8"></script>
 	</body>
 </html>

@@ -16,6 +16,14 @@ form {
   display: none;
 }
 
+.service-form {
+  display: none;
+}
+
+.accounts-form {
+  display: none;
+}
+
 .form-container {
   margin: auto;
 }
