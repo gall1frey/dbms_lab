@@ -9,7 +9,7 @@
 		<div class="header-class">
 			<a href="/"><p>Home</p></a>
 		</div>
-		<div class="title_class">
+		<div class="title-class">
 			<h1>Reception</h1>
 		</div>
 		<div class="form-container">
@@ -19,7 +19,7 @@
 				<option value="bill_form">Pay Bill</option>
 				<option value="get_bill_form">Get Bill</option>
 			</select>
-			<form class="reception-form cust-checkin-form" action="#" method="post" id='add_cust'>
+			<form class="query-form reception-form cust-checkin-form" action="#" method="post" id='add_cust'>
 				<input type="text" name="fname" placeholder="Customer First Name">
 				<input type="text" name="lname" placeholder="Customer Last Name">
 				<input type="number" name="phno" placeholder="Customer Phone Number">
@@ -29,18 +29,18 @@
 				<input type="number" name="roomno" placeholder="Room no">
 				<input type="submit" name="sub" value="Submit" id="checkin_submit">
 			</form>
-			<form class="reception-form cust-checkout-form" action="#" method="post" id="checkout_form">
+			<form class="query-form reception-form cust-checkout-form" action="#" method="post" id="checkout_form">
 				<input type="text" name="cust_lname" placeholder="Customer Last Name">
 				<input type="number" name="cust_phno" placeholder="Customer Phone Number">
 				<input type="submit" name="sub" value="Submit" id="checkout_form_sub">
 			</form>
-			<form class="reception-form bill-form" action="#" method="post" id="bill_form">
+			<form class="query-form reception-form bill-form" action="#" method="post" id="bill_form">
 				<input type="number" name="bill_id" placeholder="bill_id">
 				<input type="text" name="paymode" placeholder="payment mode">
 				<input type="number" name="customer_id" placeholder="cust_id">
 				<input type="submit" name="sub" value="Submit" id="bill_sub">
 			</form>
-			<form class="reception-form get-bill-form" action="index.html" method="post" id="get_bill_form">
+			<form class="query-form reception-form get-bill-form" action="index.html" method="post" id="get_bill_form">
 				<input type="text" name="cust_lname" placeholder="Lastname">
 				<input type="number" name="phno" placeholder="phno">
 				<input type="submit" name="sub" value="Submit" onsubmit="pay_bill" id="get_bill_sub">

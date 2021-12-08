@@ -9,7 +9,7 @@
 		<div class="header-class">
 			<a href="/"><p>Home</p></a>
 		</div>
-		<div class="title_class">
+		<div class="title-class">
 			<h1>Accounts</h1>
 		</div>
 		<div class="form-container">
@@ -17,7 +17,7 @@
 				<option value="accounts_list_form">View Salary</option>
 				<option value="accounts_update_form">Update Salary</option>
 			</select>
-			<form class="accounts-form accounts-list-form" action="#" method="post" id="accounts_list_form">
+			<form class="query-form accounts-form accounts-list-form" action="#" method="post" id="accounts_list_form">
 				<label><p>Select columns to view</p></label>
 				<label for="emp_id">Employee ID</label>
 				<input type="checkbox" name="emp_id" value="e_id">
@@ -55,7 +55,7 @@
 				<input type="text" name="check" placeholder="check">
 				<input type="submit" name="sub" value="Submit" onsubmit="list_accounts" id="list_accounts_sub">
 			</form>
-			<form class="accounts-form accounts-update-form" action="#" method="post" id="accounts_update_form">
+			<form class="query-form accounts-form accounts-update-form" action="#" method="post" id="accounts_update_form">
 				<input type="text" name="query" placeholder="too lazy. just enter the entire query here :/">
 				<input type="submit" name="sub" value="Submit" onsubmit="update_accounts" id="update_accounts_sub">
 			</form>
